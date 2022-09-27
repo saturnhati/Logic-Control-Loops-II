@@ -1,18 +1,31 @@
 let initTotal = 1000;
 let total = initTotal;
-let outgoings = Math.floor(Math.random() * 100);
+let outgoings;
+let spentHalf = true;
 
 while (total > 0) {
-    total = total - outgoings;
-
-    if (total > 0) {
-        console.log(total);
-    }
-    if (total < initTotal / 2 || total > initTotal / 4) {
-        console.log(`${total}. Warning: you spent half of your budget!`)
+    outgoings = Math.floor(Math.random() * 100);
+    if (outgoings > total) {
+        outgoings = total;
+        total = total - outgoings;
+        document.getElementById('expenses').innerHTML += `<div class="single-expenses">Spent: ${outgoings}€ - New total: ${total}€</div>`
+        document.getElementById('expenses').innerHTML += `<div class="single-expenses" id="warning">You spent all your money!</div>`
     }
     else {
-        console.log(`${total}. Warning: you spent all of your budget!`)
+        total = total - outgoings;
+        if (total > 0) {
+            document.getElementById('expenses').innerHTML += `<div class="single-expenses">Spent: ${outgoings}€ - New total: ${total}€</div>`
+        }
+        if (total < initTotal / 2) {
+            if (spentHalf == true) {
+                document.getElementById('expenses').innerHTML += `<div class="single-expenses" id="warning">You spent half of your money!</div>`
+                spentHalf = false;
+            }
+        }
+        if (total < 0) {
+            document.getElementById('expenses').innerHTML += `<div class="single-expenses">Spent: ${outgoings}€ - New total: 0€</div>`
+            document.getElementById('expenses').innerHTML += `<div class="single-expenses" id="warning">You spent all your money!</div>`
+        }
     }
 
 }

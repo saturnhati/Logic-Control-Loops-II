@@ -1,0 +1,51 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+.container {
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 8px;
+    margin: 2vh;
+    /* height: 600px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.single-expenses {
+    margin: 6px 0;
+    text-align: left;
+}
+
+#warning {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: white;
+    background-color: rgb(205, 10, 10);
+    padding: 4px 14px;
+    text-transform: uppercase;
+    text-align: center;
+    border-radius: 6px;
+}
+
+button {
+    margin: 16px 0;
+    padding: 8px 20px;
+    font-size: 1.1rem;
+    border: 2px solid black;
+    border-radius: 4px;
+    background-color:cadetblue;
+    color:white;
+}
+
+button:hover {
+    background-color: black;
+}
